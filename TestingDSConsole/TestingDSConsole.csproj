@@ -47,6 +47,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\DPRepository.cs" />
     <Compile Include="Repository\DSRepository.cs" />
+    <Compile Include="Repository\SearchRepository.cs" />
+    <Compile Include="Repository\SortRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -4,7 +4,7 @@ namespace DSI.Tree.Implementation.LinkedList
 {
     public class BinaryTree
     {
-        private Queue _queue;
+        //private Queue _queue;
 
         public class Queue
         {
@@ -27,10 +27,10 @@ namespace DSI.Tree.Implementation.LinkedList
 
         public void Enqueue()
         {
-            if(_queue == null)
-            {
+            //if(_queue == null)
+            //{
 
-            }
+            //}
         }
 
         public void Dequeue()

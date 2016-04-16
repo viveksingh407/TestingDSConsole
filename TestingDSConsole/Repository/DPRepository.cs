@@ -1,5 +1,5 @@
 ﻿using System;
-//using DSImplementation.DP;
+using DSImplementation.DP;
 
 namespace TestingDSConsole.Repository
 {
@@ -7,9 +7,9 @@ namespace TestingDSConsole.Repository
     {
         public void DPQuestions()
         {
-            //DPImplementation dp = new DPImplementation();
+            DPProblems dp = new DPProblems();
 
-            //dp.Problems();
+            dp.Problems();
         }
     }
 }
