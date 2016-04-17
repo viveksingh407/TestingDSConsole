@@ -9,7 +9,8 @@ namespace DSImplementation.Search
         {
             SortInputData(input);
             PrintSortedData(input);
-            return SearchData(key, input);
+            //return SearchData(key, input);
+            return SearchRecursive(key, 0, input.Length, input);
         }
 
         private void PrintSortedData(int[] data)
@@ -62,6 +63,34 @@ namespace DSImplementation.Search
         private int SearchRecursive(int key, int left, int right, int[] input)
         {
             var keyIndex = -1;
+
+            var mid = (left + (right - 1)) / 2;
+
+            if (input[mid] == key)
+            {
+                return mid;
+            }
+            else
+            {
+                if (mid < key)
+                {
+                    left = mid;
+                }
+                else
+                {
+                    right = mid;
+                }
+            }
+
+            if (right > left)
+            {
+                keyIndex = SearchRecursive(key, left, right, input);
+            }
+            else
+            {
+                keyIndex = -1;
+            }
+
             return keyIndex;
         }
 
