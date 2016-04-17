@@ -16,8 +16,10 @@ namespace TestingDSConsole
             SearchRepository search = new SearchRepository();
             search.SearchImplementations();
 
-            SortRepository sort = new SortRepository();
-            sort.SortImplementations();
+            Console.ReadLine();
+
+            //SortRepository sort = new SortRepository();
+            //sort.SortImplementations();
         }
     }
 }
