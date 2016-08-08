@@ -20,25 +20,22 @@ namespace DSImplementation.Tree
     {
         public void Traverse<T>(T[] input)
         {
-            this.Traverse<T>(TreeImplementationType.Array, TreeIterationType.Iterative, TreeTraversalType.InOrder, input);
+            this.Traverse<T>(TreeIterationType.Iterative, TreeTraversalType.InOrder, input);
         }
 
-        public void Traverse<T>(TreeImplementationType implementationType, TreeIterationType iterationType, TreeTraversalType traversalType, T[] input)
+        public void Traverse<T>(TreeIterationType iterationType, TreeTraversalType traversalType, T[] input)
         {
             ITraversal traversal = null;
 
-            if (implementationType == TreeImplementationType.Array)
+            if (iterationType == TreeIterationType.Iterative)
             {
-                if (iterationType == TreeIterationType.Iterative)
-                {
-                    traversal = new IterativeArrayTraversal();
-                    traversal.Traverse<T>(traversalType, input);
-                }
-                else
-                {
-                    traversal = new RecursiveArrayTraversal();
-                    traversal.Traverse<T>(traversalType, input);
-                }
+                traversal = new IterativeArrayTraversal();
+                traversal.Traverse<T>(traversalType, input);
+            }
+            else
+            {
+                traversal = new RecursiveArrayTraversal();
+                traversal.Traverse<T>(traversalType, input);
             }
         }
 
