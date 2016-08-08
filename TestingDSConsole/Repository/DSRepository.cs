@@ -2,6 +2,7 @@
 using DSImplementation;
 using DSImplementation.Sort;
 using DSImplementation.Stack.Implementation.Array;
+using DSImplementation.Queue.Implementation.Array;
 using DSImplementation.Tree;
 
 namespace TestingDSConsole.Repository
@@ -11,8 +12,20 @@ namespace TestingDSConsole.Repository
         public void Samples()
         {
             //TestStack();
-            TestTree();
+            TestQueue();
+            //TestTree();
             //TestLinkedListTree();
+        }
+
+        private void TestQueue()
+        {
+            MyQueue st = new MyQueue(10, true);
+
+            st.Enqueue(5);
+            st.Enqueue(6);
+
+            st.Dequeue();
+            st.Dequeue();
         }
 
         private void TestLinkedListTree()
@@ -67,26 +80,13 @@ namespace TestingDSConsole.Repository
 
         private void TestStack()
         {
-            var a = 0;
             MyStack st = new MyStack(10, true);
 
             st.Push(5);
-            st.Push(5);
-            //st.Push(5);
-            //st.Push(5);
-            //st.Push(5);
-            //st.Push(5);
+            st.Push(6);
 
-            a = st.Pop();
-            Console.WriteLine(a);
-            a = st.Pop();
-            Console.WriteLine(a);
-            a = st.Pop();
-            Console.WriteLine(a);
-            //st.Pop();
-            //st.Pop();
-            //st.Pop();
-            //st.Pop();
+            Console.WriteLine(st.Pop());
+            Console.WriteLine(st.Pop());
         }
 
         //private void BinaryTreeLinkedListImplementation()
