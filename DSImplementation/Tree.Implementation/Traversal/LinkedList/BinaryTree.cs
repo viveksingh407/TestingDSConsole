@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DSI.Tree.Implementation.LinkedList
+namespace DSImplementation.Tree.Implementation.LinkedList
 {
     public class BinaryTree
     {

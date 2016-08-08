@@ -1,6 +1,8 @@
 ﻿using System;
-using ar = DSI.Tree.Implementation.Array;
-using ls = DSI.Tree.Implementation.LinkedList;
+using DSImplementation;
+using DSImplementation.Sort;
+using DSImplementation.Stack.Implementation.Array;
+using DSImplementation.Tree;
 
 namespace TestingDSConsole.Repository
 {
@@ -8,34 +10,77 @@ namespace TestingDSConsole.Repository
     {
         public void Samples()
         {
-            //BinaryTreeArrayImplementation();
-            BinaryTreeLinkedListImplementation();
+            //TestStack();
+            TestTree();
         }
 
-        private void BinaryTreeLinkedListImplementation()
+        private void TestTree()
         {
-            ls.BinaryTree bTree = new ls.BinaryTree();
-            for (int i = 0; i < 10; i++)
-            {
-                bTree.Create(i+ 1);
-            }
+            Tree tree = new Tree();
+            SelectionSort sort = new SelectionSort();
+            TreeTraversal treeTraversal = new TreeTraversal();
+
+            var input = Utility.GetInputData(10);
+
+            input = sort.Sort(input);
+
+            var output = tree.Create(input);
+
+            Utility.PrintFiltered(input);
+            //Utility.Print(output);
+
+            treeTraversal.Traverse(output);
         }
 
-        private void BinaryTreeArrayImplementation()
+        private void TestStack()
         {
-            var treeNodes = 10;
+            MyStack st = new MyStack(10, true);
 
-            ar.BinaryTree tr = new ar.BinaryTree();
-            tr.DefaultLeafData = -999;
+            st.Push(5);
+            st.Push(5);
+            //st.Push(5);
+            //st.Push(5);
+            //st.Push(5);
+            //st.Push(5);
 
-            tr.Tree = new int[2 * treeNodes + 2];
+            var a = 0;
 
-            for (int i = 0; i < treeNodes; i++)
-            {
-                tr.Create(i, i + 1);
-            }
-
-            tr.Traverse();
+            a = st.Pop();
+            Console.WriteLine(a);
+            a = st.Pop();
+            Console.WriteLine(a);
+            a = st.Pop();
+            Console.WriteLine(a);
+            //st.Pop();
+            //st.Pop();
+            //st.Pop();
+            //st.Pop();
         }
+
+        //private void BinaryTreeLinkedListImplementation()
+        //{
+        //    ls.BinaryTree bTree = new ls.BinaryTree();
+        //    for (int i = 0; i < 10; i++)
+        //    {
+        //        bTree.Create(i+ 1);
+        //    }
+        //}
+
+        //private void BinaryTreeArrayImplementation()
+        //{
+        //    var treeNodes = 10;
+
+        //    ar.BinaryTree tr = new ar.BinaryTree();
+        //    tr.DefaultLeafData = -999;
+
+        //    tr.Tree = new int[2 * treeNodes + 2];
+
+        //    for (int i = 0; i < treeNodes; i++)
+        //    {
+        //        tr.Create(i, i + 1);
+        //    }
+
+        //    tr.Traverse();
+        //}
     }
 }

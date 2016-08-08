@@ -1,7 +1,7 @@
 ﻿using System;
-using DSImplementation.Tree.Traversal;
+using DSImplementation.Tree.Traversal.Array;
 
-namespace DSI.Tree.Implementation.Array
+namespace DSImplementation.Tree.Implementation.Array
 {
     public class BinaryTree
     {
@@ -9,21 +9,47 @@ namespace DSI.Tree.Implementation.Array
         {
         }
 
-        public int[] Tree { get; set; }
-        public int DefaultLeafData { get; set; }
+        public int[] _tree;
 
-        public void Create(int index, int item)
+        public int[] CreateIterative(int[] input)
         {
-            this.Tree[index] = item;
-            this.Tree[2*index +1] = this.DefaultLeafData;
-            this.Tree[2* index + 2] = this.DefaultLeafData;
+            int treeSize = 2 * input.Length + 2;
+            _tree = new int[treeSize];
+
+            for (int i = 0; i < input.Length; i++)
+            {
+                this.Create(i, input[i]);
+            }
+
+            return _tree;
         }
 
-        public void Traverse()
+        public int[] CreateRecursive(int[] input)
         {
-            DepthFirstTraversal dft = new DepthFirstTraversal();
-            dft.DefaultData = this.DefaultLeafData;
-            dft.Traverse(this.Tree);
+            int treeSize = 2 * input.Length + 2;
+            _tree = new int[treeSize];
+
+            this.CreateRecursiveTree(0, input);
+
+            return _tree;
+        }
+
+        private void CreateRecursiveTree(int index, int[] input)
+        {
+            if(index == input.Length - 1)
+            {
+                return;
+            }
+
+            Create(index, input[index]);
+            CreateRecursiveTree(index + 1, input);
+        }
+
+        private void Create(int index, int item)
+        {
+            _tree[2 * index + 1] = -999;
+            _tree[2 * index + 2] = -999;
+            _tree[index] = item;
         }
     }
 }
