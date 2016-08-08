@@ -42,12 +42,11 @@
   <ItemGroup>
     <Compile Include="Array\FindTwoElementsWithSum.cs" />
     <Compile Include="Array\PrintVerticalBinaryTree.cs" />
-    <Compile Include="DP\DPProblems.cs" />
     <Compile Include="DP\IProblem.cs" />
     <Compile Include="DP\Problems\LCS.cs" />
     <Compile Include="DP\Problems\LIS.cs" />
-    <Compile Include="DP\Problems\MinimumDiffPair.cs" />
     <Compile Include="DP\Problems\ReverseString.cs" />
+    <Compile Include="Implementation\Tree.Implementation\Traversal\LinkedList\Iterative\IterativeLinkedListTreeTraversal.cs" />
     <Compile Include="Implementation\Tree.Implementation\Traversal\LinkedList\Recursive\RecursiveLinkedListTreeTraversal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Implementation\Queue.Implementation\Array\MyQueue.cs" />
@@ -63,7 +62,6 @@
     <Compile Include="Implementation\Tree.Implementation\Traversal\IBinaryTree.cs" />
     <Compile Include="Implementation\Tree.Implementation\Traversal\ITraversal.cs" />
     <Compile Include="Implementation\Tree.Implementation\Traversal\LinkedList\BinaryTree.cs" />
-    <Compile Include="Implementation\Tree.Implementation\Traversal\LinkedList\Iterative\IterativeLinkedListTreeTraversal.cs" />
     <Compile Include="Implementation\Tree.Implementation\TreeTraversal.cs" />
     <Compile Include="Implementation\Tree.Implementation\Tree.cs" />
     <Compile Include="Utility.cs" />

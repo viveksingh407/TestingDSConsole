@@ -7,9 +7,9 @@ namespace TestingDSConsole.Repository
     {
         public void DPQuestions()
         {
-            DPProblems dp = new DPProblems();
+            //DPProblems dp = new DPProblems();
 
-            dp.Problems();
+            //dp.Problems();
         }
     }
 }
