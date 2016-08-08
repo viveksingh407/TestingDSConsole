@@ -22,18 +22,15 @@ namespace TestingDSConsole.Repository
 
             var input = Utility.GetInputData(10);
 
-            input = sort.Sort(input);
-
             var output = tree.Create(input);
 
             Utility.PrintFiltered(input);
-            //Utility.Print(output);
-
             treeTraversal.Traverse(output);
         }
 
         private void TestStack()
         {
+            var a = 0;
             MyStack st = new MyStack(10, true);
 
             st.Push(5);
@@ -42,8 +39,6 @@ namespace TestingDSConsole.Repository
             //st.Push(5);
             //st.Push(5);
             //st.Push(5);
-
-            var a = 0;
 
             a = st.Pop();
             Console.WriteLine(a);
