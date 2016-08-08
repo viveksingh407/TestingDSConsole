@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace DSImplementation.Queue.Implementation.Array
 {
-    public class MyQueue
+    public class MyQueue<T>
     {
-        private int[] _item;
+        private T[] _item;
         private int _front = 0;
         private int _rear = 0;
 
@@ -16,11 +16,16 @@ namespace DSImplementation.Queue.Implementation.Array
 
         public MyQueue(int capacity, bool isPrint)
         {
-            _item = Utility.InitializeArray(capacity);
+            _item = Utility.InitializeGenericArray<T>(capacity);
             _isPrint = isPrint;
         }
 
-        public void Enqueue(int item)
+        public T Peek()
+        {
+            return _item[_front];
+        }
+
+        public void Enqueue(T item)
         {
             if (_rear > _item.Length - 1)
             {
@@ -32,13 +37,13 @@ namespace DSImplementation.Queue.Implementation.Array
 
             if (_isPrint)
             {
-                Utility.PrintFiltered(_item);
+                Utility.PrintFilteredGenericArray<T>(_item);
             }
         }
 
-        public int Dequeue()
+        public T Dequeue()
         {
-            var item = -999;
+            var item = default(T);
 
             if (_rear == 0 || _front >= _rear)
             {
@@ -46,12 +51,12 @@ namespace DSImplementation.Queue.Implementation.Array
             }
 
             item = _item[_front];
-            _item[_front] = -999;
+            _item[_front] = default(T);
             _front += 1;
 
             if (_isPrint)
             {
-                Utility.PrintFiltered(_item);
+                Utility.PrintFilteredGenericArray<T>(_item);
             }
 
             return item;

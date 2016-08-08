@@ -1,4 +1,5 @@
 ﻿using System;
+using DSImplementation.Queue.Implementation.Array;
 
 namespace DSImplementation.Tree.Implementation.LinkedList
 {
@@ -11,18 +12,21 @@ namespace DSImplementation.Tree.Implementation.LinkedList
 
     public class BinaryTree
     {
+        private static MyQueue<TreeNode> _queue;
+
         public TreeNode RootNode { get; set; }
 
         public TreeNode CreateIterative(int[] input)
         {
-            TreeNode rootNode = new TreeNode();
+            _queue = new MyQueue<TreeNode>(input.Length, false);
+            RootNode = null;
 
             for (int i = 0; i < input.Length; i++)
             {
-                Insert(rootNode, input[i]);
+                Insert(input[i]);
             }
 
-            return rootNode;
+            return this.RootNode;
         }
 
         public TreeNode CreateRecursive(int[] input)
@@ -31,10 +35,9 @@ namespace DSImplementation.Tree.Implementation.LinkedList
             return rootNode;
         }
 
-        private static void Insert(TreeNode rootNode, int item)
+        private void Insert(int item)
         {
-            TreeNode current = null;
-            TreeNode parent = null;
+            TreeNode currentNode = null;
 
             TreeNode newNode = new TreeNode()
             {
@@ -43,30 +46,30 @@ namespace DSImplementation.Tree.Implementation.LinkedList
                 RightNode = null
             };
 
-            if (rootNode == null)
+            if (this.RootNode == null)
             {
-                rootNode = newNode;
+                this.RootNode = newNode;
             }
-            else {
-                current = rootNode;
+            else
+            {
+                currentNode = _queue.Peek();
 
-                while (true)
+                if (currentNode.LeftNode == null)
                 {
-                    parent = current;
-
-                    if (rootNode.LeftNode == null)
-                    {
-                        rootNode.LeftNode = newNode;
-                    }
-                    else if (rootNode.RightNode == null)
-                    {
-                        rootNode.RightNode = newNode;
-                    }
-                    else {
-                        rootNode = rootNode.LeftNode;
-                    }
+                    currentNode.LeftNode = newNode;
+                }
+                else if (currentNode.RightNode == null)
+                {
+                    currentNode.RightNode = newNode;
+                }
+                
+                if(currentNode.LeftNode != null && currentNode.RightNode != null)
+                {
+                    _queue.Dequeue();
                 }
             }
+
+            _queue.Enqueue(newNode);
         }
     }
 }

@@ -12,14 +12,14 @@ namespace TestingDSConsole.Repository
         public void Samples()
         {
             //TestStack();
-            TestQueue();
+            //TestQueue();
             //TestTree();
-            //TestLinkedListTree();
+            TestLinkedListTree();
         }
 
         private void TestQueue()
         {
-            MyQueue st = new MyQueue(10, true);
+            MyQueue<int> st = new MyQueue<int>(10, true);
 
             st.Enqueue(5);
             st.Enqueue(6);

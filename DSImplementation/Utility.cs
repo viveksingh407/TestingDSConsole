@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text;
 
 namespace DSImplementation
@@ -45,6 +46,18 @@ namespace DSImplementation
             return input;
         }
 
+        public static T[] InitializeGenericArray<T>(int inputSize)
+        {
+            T[] input = new T[inputSize];
+
+            for (int i = 0; i < inputSize; i++)
+            {
+                input[i] = default(T);
+            }
+
+            return input;
+        }
+
         public static void PrintAll(int[] data)
         {
             Console.Write("Input : ");
@@ -75,6 +88,24 @@ namespace DSImplementation
 
             var output = builder.Length != 0 ? builder.ToString(0, builder.Length - 2) : string.Empty;
             
+            Console.WriteLine(output);
+        }
+
+        public static void PrintFilteredGenericArray<T>(T[] data)
+        {
+            Console.Write("Input : ");
+            StringBuilder builder = new StringBuilder();
+
+            for (int i = 0; i < data.Length; i++)
+            {
+                if (!EqualityComparer<T>.Default.Equals(data[i], default(T)))
+                {
+                    builder.Append(data[i] + ", ");
+                }
+            }
+
+            var output = builder.Length != 0 ? builder.ToString(0, builder.Length - 2) : string.Empty;
+
             Console.WriteLine(output);
         }
     }
