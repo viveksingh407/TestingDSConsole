@@ -1,6 +1,8 @@
 ﻿using System;
 using DSImplementation.Tree.Implementation;
+using DSImplementation.Tree.Traversal;
 using DSImplementation.Tree.Traversal.Array;
+using DSImplementation.Tree.Traversal.LinkedList;
 using DSImplementation.Tree.Implementation.Array;
 using DSImplementation.Tree.Implementation.LinkedList;
 
@@ -16,12 +18,12 @@ namespace DSImplementation.Tree
 
     public class TreeTraversal
     {
-        public void Traverse(int[] input)
+        public void Traverse<T>(T[] input)
         {
-            this.Traverse(TreeImplementationType.Array, TreeIterationType.Iterative, TreeTraversalType.InOrder, input);
+            this.Traverse<T>(TreeImplementationType.Array, TreeIterationType.Iterative, TreeTraversalType.InOrder, input);
         }
 
-        public void Traverse(TreeImplementationType implementationType, TreeIterationType iterationType, TreeTraversalType traversalType, int[] input)
+        public void Traverse<T>(TreeImplementationType implementationType, TreeIterationType iterationType, TreeTraversalType traversalType, T[] input)
         {
             ITraversal traversal = null;
 
@@ -30,27 +32,29 @@ namespace DSImplementation.Tree
                 if (iterationType == TreeIterationType.Iterative)
                 {
                     traversal = new IterativeArrayTraversal();
-                    traversal.Traverse(traversalType, input);
+                    traversal.Traverse<T>(traversalType, input);
                 }
                 else
                 {
                     traversal = new RecursiveArrayTraversal();
-                    traversal.Traverse(traversalType, input);
+                    traversal.Traverse<T>(traversalType, input);
                 }
+            }
+        }
+
+        public void Traverse<T>(TreeIterationType iterationType, TreeTraversalType traversalType, T input)
+        {
+            ITraversal traversal = null;
+
+            if (iterationType == TreeIterationType.Iterative)
+            {
+                traversal = new IterativeLinkedListTreeTraversal();
+                traversal.Traverse<T>(traversalType, input);
             }
             else
             {
-                //if (this.TreeImplementationType == TreeImplementationType.Array)
-                //{
-                //    if (this.TreeIterationType == TreeIterationType.Iterative)
-                //    {
-                //        dfs = new DepthFirstIterativeArrayTraversal();
-                //    }
-                //    else
-                //    {
-                //        dfs = new DepthFirstRecursiveArrayTraversal();
-                //    }
-                //}
+                traversal = new RecursiveLinkedListTreeTraversal();
+                traversal.Traverse<T>(traversalType, input);
             }
         }
     }

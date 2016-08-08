@@ -16,7 +16,11 @@ namespace DSImplementation.Tree.Traversal.Array
 
         public int DefaultData { get; set; }
 
-        public void Traverse(TreeTraversalType traversalType, int[] tree)
+        public void Traverse<T>(TreeTraversalType traversalType, T tree)
+        {
+        }
+
+        public void Traverse<T>(TreeTraversalType traversalType, T[] tree)
         {
             //TraverseWithoutRecursion(tree);
             switch(traversalType)
@@ -38,7 +42,7 @@ namespace DSImplementation.Tree.Traversal.Array
             Console.WriteLine();
         }
 
-        private void InOrderTraversal(int[] input)
+        private void InOrderTraversal<T>(T[] input)
         {
             var currentIndex = 0;
             var leftIndex = 0;
@@ -54,7 +58,7 @@ namespace DSImplementation.Tree.Traversal.Array
 
             while (!done)
             {
-                if (input[currentIndex] != -999)
+                if (!EqualityComparer<T>.Default.Equals(input[currentIndex], default(T)))
                 {
                     st.Push(currentIndex);
                     leftIndex = 2 * currentIndex + 1;
@@ -77,7 +81,7 @@ namespace DSImplementation.Tree.Traversal.Array
             }
         }
 
-        private void PreOrderTraversal(int[] input)
+        private void PreOrderTraversal<T>(T[] input)
         {
             var currentIndex = 0;
             var leftIndex = 0;
@@ -93,7 +97,7 @@ namespace DSImplementation.Tree.Traversal.Array
 
             while (!done)
             {
-                if (input[currentIndex] != -999)
+                if (!EqualityComparer<T>.Default.Equals(input[currentIndex], default(T)))
                 {
                     st.Push(currentIndex);
                     Console.Write(input[currentIndex] + " ");
@@ -116,7 +120,7 @@ namespace DSImplementation.Tree.Traversal.Array
             }
         }
 
-        private void PostOrderTraversal(int[] input)
+        private void PostOrderTraversal<T>(T[] input)
         {
             var currentIndex = 0;
             var leftIndex = 0;
@@ -141,12 +145,12 @@ namespace DSImplementation.Tree.Traversal.Array
                 leftIndex = 2 * currentIndex + 1;
                 rightIndex = 2 * currentIndex + 2;
 
-                if (input[leftIndex] != -999)
+                if (!EqualityComparer<T>.Default.Equals(input[leftIndex], default(T)))
                 {
                     st1.Push(leftIndex);
                 }
 
-                if (input[rightIndex] != -999)
+                if (!EqualityComparer<T>.Default.Equals(input[rightIndex], default(T)))
                 {
                     st1.Push(rightIndex);
                 }

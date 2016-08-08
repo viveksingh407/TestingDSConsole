@@ -4,6 +4,7 @@ using DSImplementation.Sort;
 using DSImplementation.Stack.Implementation.Array;
 using DSImplementation.Queue.Implementation.Array;
 using DSImplementation.Tree;
+using DSImplementation.Tree.Implementation.LinkedList;
 
 namespace TestingDSConsole.Repository
 {
@@ -13,8 +14,8 @@ namespace TestingDSConsole.Repository
         {
             //TestStack();
             //TestQueue();
-            //TestTree();
-            TestLinkedListTree();
+            TestTree();
+            //TestLinkedListTree();
         }
 
         private void TestQueue()
@@ -37,9 +38,8 @@ namespace TestingDSConsole.Repository
             var output = tree.CreateTreeByLinkedList(input);
 
             Utility.PrintFiltered(input);
-            //Utility.PrintFiltered(output);
 
-            //treeTraversal.Traverse(TreeImplementationType.Array, TreeIterationType.Iterative, TreeTraversalType.InOrder, output);
+            treeTraversal.Traverse<TreeNode>(TreeIterationType.Iterative, TreeTraversalType.InOrder, output);
             //treeTraversal.Traverse(TreeImplementationType.Array, TreeIterationType.Recursive, TreeTraversalType.InOrder, output);
 
             //Console.WriteLine();

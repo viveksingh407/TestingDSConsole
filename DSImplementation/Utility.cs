@@ -14,6 +14,11 @@ namespace DSImplementation
             for (int i = 0; i < inputSize; i++)
             {
                 input[i] = rnd.Next(100);
+
+                if (input[i] == 0)
+                {
+                    i -= 1;
+                }
             }
 
             return input;

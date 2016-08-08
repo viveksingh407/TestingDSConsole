@@ -47,8 +47,8 @@ namespace DSImplementation.Tree.Implementation.Array
 
         private void Create(int index, int item)
         {
-            _tree[2 * index + 1] = -999;
-            _tree[2 * index + 2] = -999;
+            _tree[2 * index + 1] = 0;
+            _tree[2 * index + 2] = 0;
             _tree[index] = item;
         }
     }

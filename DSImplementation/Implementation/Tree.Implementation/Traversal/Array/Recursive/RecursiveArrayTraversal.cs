@@ -1,5 +1,6 @@
 ﻿using System;
 using DSImplementation.Tree.Implementation;
+using System.Collections.Generic;
 
 namespace DSImplementation.Tree.Traversal.Array
 {
@@ -12,7 +13,11 @@ namespace DSImplementation.Tree.Traversal.Array
         private static int _count = 1;
         public int DefaultData { get; set; }
 
-        public void Traverse(TreeTraversalType traversalType, int[] tree)
+        public void Traverse<T>(TreeTraversalType traversalType, T tree)
+        {
+        }
+
+        public void Traverse<T>(TreeTraversalType traversalType, T[] tree)
         {
             switch (traversalType)
             {
@@ -37,9 +42,9 @@ namespace DSImplementation.Tree.Traversal.Array
             Console.WriteLine();
         }
 
-        private void InOrderTraversal(int[] input, int currentIndex)
+        private void InOrderTraversal<T>(T[] input, int currentIndex)
         {
-            if (input[currentIndex] == -999)
+            if (EqualityComparer<T>.Default.Equals(input[currentIndex], default(T)))
                 return;
 
             var leftIndex = 2 * currentIndex + 1;
@@ -50,9 +55,9 @@ namespace DSImplementation.Tree.Traversal.Array
             InOrderTraversal(input, rightIndex);
         }
 
-        private void PreOrderTraversal(int[] input, int currentIndex)
+        private void PreOrderTraversal<T>(T[] input, int currentIndex)
         {
-            if (input[currentIndex] == -999)
+            if (EqualityComparer<T>.Default.Equals(input[currentIndex], default(T)))
                 return;
 
             var leftIndex = 2 * currentIndex + 1;
@@ -63,9 +68,9 @@ namespace DSImplementation.Tree.Traversal.Array
             PreOrderTraversal(input, rightIndex);
         }
 
-        private void PostOrderTraversal(int[] input, int currentIndex)
+        private void PostOrderTraversal<T>(T[] input, int currentIndex)
         {
-            if (input[currentIndex] == -999)
+            if (EqualityComparer<T>.Default.Equals(input[currentIndex], default(T)))
                 return;
 
             var leftIndex = 2 * currentIndex + 1;
