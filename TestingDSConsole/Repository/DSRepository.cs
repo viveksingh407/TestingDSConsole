@@ -21,11 +21,22 @@ namespace TestingDSConsole.Repository
             TreeTraversal treeTraversal = new TreeTraversal();
 
             var input = Utility.GetInputData(10);
-
             var output = tree.Create(input);
 
             Utility.PrintFiltered(input);
-            treeTraversal.Traverse(output);
+
+            treeTraversal.Traverse(TreeImplementationType.Array, TreeIterationType.Iterative, TreeTraversalType.InOrder, output);
+            treeTraversal.Traverse(TreeImplementationType.Array, TreeIterationType.Recursive, TreeTraversalType.InOrder, output);
+
+            Console.WriteLine();
+
+            treeTraversal.Traverse(TreeImplementationType.Array, TreeIterationType.Iterative, TreeTraversalType.PreOrder, output);
+            treeTraversal.Traverse(TreeImplementationType.Array, TreeIterationType.Recursive, TreeTraversalType.PreOrder, output);
+
+            Console.WriteLine();
+
+            treeTraversal.Traverse(TreeImplementationType.Array, TreeIterationType.Iterative, TreeTraversalType.PostOrder, output);
+            treeTraversal.Traverse(TreeImplementationType.Array, TreeIterationType.Recursive, TreeTraversalType.PostOrder, output);
         }
 
         private void TestStack()

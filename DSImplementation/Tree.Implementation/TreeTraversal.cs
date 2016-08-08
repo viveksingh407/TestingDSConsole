@@ -30,12 +30,12 @@ namespace DSImplementation.Tree
                 if (iterationType == TreeIterationType.Iterative)
                 {
                     traversal = new IterativeArrayTraversal();
-
                     traversal.Traverse(traversalType, input);
                 }
                 else
                 {
                     traversal = new RecursiveArrayTraversal();
+                    traversal.Traverse(traversalType, input);
                 }
             }
             else

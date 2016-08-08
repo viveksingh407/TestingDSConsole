@@ -14,7 +14,66 @@ namespace DSImplementation.Tree.Traversal.Array
 
         public void Traverse(TreeTraversalType traversalType, int[] tree)
         {
-            TraverseWithRecursion(tree, 0, 0);
+            switch (traversalType)
+            {
+                case TreeTraversalType.InOrder:
+                    Console.Write("InOrder Traversal: ");
+                    InOrderTraversal(tree, 0);
+                    break;
+                case TreeTraversalType.PreOrder:
+                    Console.Write("PreOrder Traversal: ");
+                    PreOrderTraversal(tree, 0);
+                    break;
+                case TreeTraversalType.PostOrder:
+                    Console.Write("PostOrder Traversal: ");
+                    PostOrderTraversal(tree, 0);
+                    break;
+                default:
+                    Console.Write("Default InOrder Traversal: ");
+                    InOrderTraversal(tree, 0);
+                    break;
+            }
+
+            Console.WriteLine();
+        }
+
+        private void InOrderTraversal(int[] input, int currentIndex)
+        {
+            if (input[currentIndex] == -999)
+                return;
+
+            var leftIndex = 2 * currentIndex + 1;
+            var rightIndex = 2 * currentIndex + 2;
+
+            InOrderTraversal(input, leftIndex);
+            Console.Write(input[currentIndex] + " ");
+            InOrderTraversal(input, rightIndex);
+        }
+
+        private void PreOrderTraversal(int[] input, int currentIndex)
+        {
+            if (input[currentIndex] == -999)
+                return;
+
+            var leftIndex = 2 * currentIndex + 1;
+            var rightIndex = 2 * currentIndex + 2;
+
+            Console.Write(input[currentIndex] + " ");
+            PreOrderTraversal(input, leftIndex);
+            PreOrderTraversal(input, rightIndex);
+        }
+
+        private void PostOrderTraversal(int[] input, int currentIndex)
+        {
+            if (input[currentIndex] == -999)
+                return;
+
+            var leftIndex = 2 * currentIndex + 1;
+            var rightIndex = 2 * currentIndex + 2;
+
+            PostOrderTraversal(input, leftIndex);
+            PostOrderTraversal(input, rightIndex);
+            Console.Write(input[currentIndex] + " ");
         }
 
         public void TraverseWithRecursion(int[] tree, int previousIndex, int index)
