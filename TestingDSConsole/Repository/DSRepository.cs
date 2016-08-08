@@ -12,6 +12,32 @@ namespace TestingDSConsole.Repository
         {
             //TestStack();
             TestTree();
+            //TestLinkedListTree();
+        }
+
+        private void TestLinkedListTree()
+        {
+            Tree tree = new Tree();
+            TreeTraversal treeTraversal = new TreeTraversal();
+
+            var input = Utility.GetInputData(10);
+            var output = tree.CreateTreeByLinkedList(input);
+
+            Utility.PrintFiltered(input);
+            //Utility.PrintFiltered(output);
+
+            //treeTraversal.Traverse(TreeImplementationType.Array, TreeIterationType.Iterative, TreeTraversalType.InOrder, output);
+            //treeTraversal.Traverse(TreeImplementationType.Array, TreeIterationType.Recursive, TreeTraversalType.InOrder, output);
+
+            //Console.WriteLine();
+
+            //treeTraversal.Traverse(TreeImplementationType.Array, TreeIterationType.Iterative, TreeTraversalType.PreOrder, output);
+            //treeTraversal.Traverse(TreeImplementationType.Array, TreeIterationType.Recursive, TreeTraversalType.PreOrder, output);
+
+            //Console.WriteLine();
+
+            //treeTraversal.Traverse(TreeImplementationType.Array, TreeIterationType.Iterative, TreeTraversalType.PostOrder, output);
+            //treeTraversal.Traverse(TreeImplementationType.Array, TreeIterationType.Recursive, TreeTraversalType.PostOrder, output);
         }
 
         private void TestTree()
@@ -21,7 +47,7 @@ namespace TestingDSConsole.Repository
             TreeTraversal treeTraversal = new TreeTraversal();
 
             var input = Utility.GetInputData(10);
-            var output = tree.Create(input);
+            var output = tree.CreateTreeByArray(input);
 
             Utility.PrintFiltered(input);
 
