@@ -42,8 +42,12 @@ namespace DSImplementation.Queue.Implementation.LinkedList
             {
                 temp = Front;
                 Front = Front.Next;
-            }
 
+                if(Front == null)
+                {
+                    Rear = null;
+                }
+            }
 
             return temp.Data;
         }

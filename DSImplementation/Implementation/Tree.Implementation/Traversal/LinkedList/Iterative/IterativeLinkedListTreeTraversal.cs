@@ -29,6 +29,10 @@ namespace DSImplementation.Tree.Traversal.LinkedList
                     Console.Write("PostOrder Traversal: ");
                     PostOrderTraversal<T>(tree);
                     break;
+                case TreeTraversalType.BreadthFirstOrder:
+                    Console.Write("LevelOrder Traversal: ");
+                    BreadthFirstOrderTraversal<T>(tree);
+                    break;
                 default:
                     Console.Write("Default InOrder Traversal: ");
                     InOrderTraversal<T>(tree);
@@ -111,6 +115,33 @@ namespace DSImplementation.Tree.Traversal.LinkedList
             {
                 temp = stack2.Pop();
                 Console.Write(temp.Data + " ");
+            }
+        }
+
+        public void BreadthFirstOrderTraversal<T>(TreeNode rootNode)
+        {
+            if (rootNode != null)
+            {
+                MyQueue<TreeNode> queue = new MyQueue<TreeNode>();
+
+                queue.Enqueue(rootNode);
+
+                while (!queue.IsQueueEmpty())
+                {
+                    rootNode = queue.Dequeue();
+
+                    Console.Write(rootNode.Data + " ");
+
+                    if (rootNode.LeftNode != null)
+                    {
+                        queue.Enqueue(rootNode.LeftNode);
+                    }
+
+                    if (rootNode.RightNode != null)
+                    {
+                        queue.Enqueue(rootNode.RightNode);
+                    }
+                }
             }
         }
 

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using DSImplementation.Stack.Implementation.Array;
 using DSImplementation.Tree.Implementation;
 using DSImplementation.Tree.Implementation.LinkedList;
+using DSImplementation.Queue.Implementation.Array;
 
 namespace DSImplementation.Tree.Traversal.Array
 {
@@ -34,6 +35,10 @@ namespace DSImplementation.Tree.Traversal.Array
                     break;
                 case TreeTraversalType.PostOrder:
                     PostOrderTraversal(tree);
+                    break;
+                case TreeTraversalType.BreadthFirstOrder:
+                    Console.Write("LevelOrder Traversal: ");
+                    BreadthFirstOrderTraversal(tree);
                     break;
                 default:
                     InOrderTraversal(tree);
@@ -210,6 +215,40 @@ namespace DSImplementation.Tree.Traversal.Array
 
                 previousIndex = index;
                 index = tempIndex;
+            }
+        }
+
+        public void BreadthFirstOrderTraversal<T>(T[] input)
+        {
+            var currentIndex = 0;
+            var leftIndex = 0;
+            var rightIndex = 0;
+
+            if (input != null)
+            {
+                MyQueue<int> queue = new MyQueue<int>(input.Length, false);
+
+                queue.Enqueue(0);
+
+                while (!queue.isQueueEmpty())
+                {
+                    currentIndex = queue.Dequeue();
+
+                    Console.Write(input[currentIndex] + " ");
+
+                    leftIndex = 2 * currentIndex + 1;
+                    rightIndex = 2 * currentIndex + 2;
+
+                    if (!EqualityComparer<T>.Default.Equals(input[leftIndex], default(T)))
+                    {
+                        queue.Enqueue(leftIndex);
+                    }
+
+                    if (!EqualityComparer<T>.Default.Equals(input[rightIndex], default(T)))
+                    {
+                        queue.Enqueue(rightIndex);
+                    }
+                }
             }
         }
 

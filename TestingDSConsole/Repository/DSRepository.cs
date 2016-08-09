@@ -71,16 +71,12 @@ namespace TestingDSConsole.Repository
 
             treeTraversal.Traverse<int>(TreeIterationType.Iterative, TreeTraversalType.InOrder, output);
             treeTraversal.Traverse<int>(TreeIterationType.Recursive, TreeTraversalType.InOrder, output);
-
-            Console.WriteLine();
-
             treeTraversal.Traverse<int>(TreeIterationType.Iterative, TreeTraversalType.PreOrder, output);
             treeTraversal.Traverse<int>(TreeIterationType.Recursive, TreeTraversalType.PreOrder, output);
-
-            Console.WriteLine();
-
             treeTraversal.Traverse<int>(TreeIterationType.Iterative, TreeTraversalType.PostOrder, output);
             treeTraversal.Traverse<int>(TreeIterationType.Recursive, TreeTraversalType.PostOrder, output);
+            treeTraversal.Traverse<int>(TreeIterationType.Iterative, TreeTraversalType.BreadthFirstOrder, output);
+            //treeTraversal.Traverse<int>(TreeIterationType.Recursive, TreeTraversalType.BreadthFirstOrder, output);
         }
 
         private void TestTree(int[] input)
@@ -95,16 +91,12 @@ namespace TestingDSConsole.Repository
 
             treeTraversal.Traverse(TreeIterationType.Iterative, TreeTraversalType.InOrder, output);
             treeTraversal.Traverse(TreeIterationType.Recursive, TreeTraversalType.InOrder, output);
-
-            Console.WriteLine();
-
             treeTraversal.Traverse(TreeIterationType.Iterative, TreeTraversalType.PreOrder, output);
             treeTraversal.Traverse(TreeIterationType.Recursive, TreeTraversalType.PreOrder, output);
-
-            Console.WriteLine();
-
             treeTraversal.Traverse(TreeIterationType.Iterative, TreeTraversalType.PostOrder, output);
             treeTraversal.Traverse(TreeIterationType.Recursive, TreeTraversalType.PostOrder, output);
+            treeTraversal.Traverse<int>(TreeIterationType.Iterative, TreeTraversalType.BreadthFirstOrder, output);
+            //treeTraversal.Traverse<int>(TreeIterationType.Recursive, TreeTraversalType.BreadthFirstOrder, output);
         }
 
         private void TestStack()

@@ -62,7 +62,7 @@ namespace DSImplementation.Queue.Implementation.Array
             return item;
         }
 
-        public bool isStackEmpty()
+        public bool isQueueEmpty()
         {
             return (_rear == 0 || _front >= _rear);
         }
