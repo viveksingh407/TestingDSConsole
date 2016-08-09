@@ -13,39 +13,60 @@ namespace DSImplementation.Tree.Traversal.LinkedList
         {
         }
 
-        public void Traverse<T>(TreeTraversalType traversalType, T tree)
+        public void Traverse<T>(TreeTraversalType traversalType, TreeNode tree)
         {
             switch (traversalType)
             {
                 case TreeTraversalType.InOrder:
                     Console.Write("InOrder Traversal: ");
-                    InOrderTraversal(tree);
+                    InOrderTraversal<T>(tree);
                     break;
                 case TreeTraversalType.PreOrder:
                     Console.Write("PreOrder Traversal: ");
-                    PreOrderTraversal(tree);
+                    PreOrderTraversal<T>(tree);
                     break;
                 case TreeTraversalType.PostOrder:
                     Console.Write("PostOrder Traversal: ");
-                    PostOrderTraversal(tree);
+                    PostOrderTraversal<T>(tree);
                     break;
                 default:
                     Console.Write("Default InOrder Traversal: ");
-                    InOrderTraversal(tree);
+                    InOrderTraversal<T>(tree);
                     break;
             }
 
             Console.WriteLine();
         }
 
-        private void InOrderTraversal<T>(T rootNode)
-        { }
+        private void InOrderTraversal<T>(TreeNode rootNode)
+        {
+            if (rootNode == null)
+                return;
 
-        private void PreOrderTraversal<T>(T rootNode)
-        { }
+            InOrderTraversal<T>(rootNode.LeftNode);
+            Console.Write(rootNode.Data + " ");
+            InOrderTraversal<T>(rootNode.RightNode);
+        }
 
-        private void PostOrderTraversal<T>(T rootNode)
-        { }
+        private void PreOrderTraversal<T>(TreeNode rootNode)
+        {
+            if (rootNode == null)
+                return;
+
+            Console.Write(rootNode.Data + " ");
+            PreOrderTraversal<T>(rootNode.LeftNode);
+            PreOrderTraversal<T>(rootNode.RightNode);
+        }
+
+        private void PostOrderTraversal<T>(TreeNode rootNode)
+        {
+            if (rootNode == null)
+                return;
+
+            PostOrderTraversal<T>(rootNode.LeftNode);
+            PostOrderTraversal<T>(rootNode.RightNode);
+            Console.Write(rootNode.Data + " ");
+        }
 
         public void PrintNode(int index, int item)
         {

@@ -6,6 +6,7 @@ using aq = DSImplementation.Queue.Implementation.Array;
 using lq = DSImplementation.Queue.Implementation.LinkedList;
 using DSImplementation.Tree;
 using DSImplementation.Tree.Implementation.LinkedList;
+using DSImplementation.Stack.Implementation.LinkedList;
 
 namespace TestingDSConsole.Repository
 {
@@ -14,10 +15,27 @@ namespace TestingDSConsole.Repository
         public void Samples()
         {
             //TestStack();
-            TestQueue();
-            TestQueueByLinkedList();
-            //TestTree();
-            //TestLinkedListTree();
+            //TestStackByLinkedList();
+            //TestQueue();
+            //TestQueueByLinkedList();
+
+            var input = Utility.GetInputData(10);
+
+            TestTree(input);
+            Console.WriteLine();
+            Console.WriteLine("Linked List: ");
+            TestLinkedListTree(input);
+        }
+
+        private void TestStackByLinkedList()
+        {
+            MyStack<int> st = new MyStack<int>();
+
+            st.Push(5);
+            st.Push(6);
+
+            Console.WriteLine(st.Pop());
+            Console.WriteLine(st.Pop());
         }
 
         private void TestQueueByLinkedList()
@@ -42,37 +60,35 @@ namespace TestingDSConsole.Repository
             st.Dequeue();
         }
 
-        private void TestLinkedListTree()
+        private void TestLinkedListTree(int[] input)
         {
             Tree tree = new Tree();
             TreeTraversal treeTraversal = new TreeTraversal();
 
-            var input = Utility.GetInputData(10);
             var output = tree.CreateTreeByLinkedList(input);
 
             Utility.PrintFiltered(input);
 
-            treeTraversal.Traverse<TreeNode>(TreeIterationType.Iterative, TreeTraversalType.InOrder, output);
-            //treeTraversal.Traverse(TreeIterationType.Recursive, TreeTraversalType.InOrder, output);
+            treeTraversal.Traverse<int>(TreeIterationType.Iterative, TreeTraversalType.InOrder, output);
+            treeTraversal.Traverse<int>(TreeIterationType.Recursive, TreeTraversalType.InOrder, output);
 
-            //Console.WriteLine();
+            Console.WriteLine();
 
-            //treeTraversal.Traverse(TreeIterationType.Iterative, TreeTraversalType.PreOrder, output);
-            //treeTraversal.Traverse(TreeIterationType.Recursive, TreeTraversalType.PreOrder, output);
+            treeTraversal.Traverse<int>(TreeIterationType.Iterative, TreeTraversalType.PreOrder, output);
+            treeTraversal.Traverse<int>(TreeIterationType.Recursive, TreeTraversalType.PreOrder, output);
 
-            //Console.WriteLine();
+            Console.WriteLine();
 
-            //treeTraversal.Traverse(TreeIterationType.Iterative, TreeTraversalType.PostOrder, output);
-            //treeTraversal.Traverse(TreeIterationType.Recursive, TreeTraversalType.PostOrder, output);
+            treeTraversal.Traverse<int>(TreeIterationType.Iterative, TreeTraversalType.PostOrder, output);
+            treeTraversal.Traverse<int>(TreeIterationType.Recursive, TreeTraversalType.PostOrder, output);
         }
 
-        private void TestTree()
+        private void TestTree(int[] input)
         {
             Tree tree = new Tree();
             SelectionSort sort = new SelectionSort();
             TreeTraversal treeTraversal = new TreeTraversal();
 
-            var input = Utility.GetInputData(10);
             var output = tree.CreateTreeByArray(input);
 
             Utility.PrintFiltered(input);

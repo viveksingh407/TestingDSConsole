@@ -48,7 +48,7 @@ namespace DSImplementation.Queue.Implementation.LinkedList
             return temp.Data;
         }
 
-        public T Peek(T item)
+        public T Peek()
         {
             return Front.Data;
         }

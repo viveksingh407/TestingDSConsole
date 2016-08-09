@@ -39,7 +39,7 @@ namespace DSImplementation.Tree
             }
         }
 
-        public void Traverse<T>(TreeIterationType iterationType, TreeTraversalType traversalType, T input)
+        public void Traverse<T>(TreeIterationType iterationType, TreeTraversalType traversalType, TreeNode input)
         {
             ITraversal traversal = null;
 

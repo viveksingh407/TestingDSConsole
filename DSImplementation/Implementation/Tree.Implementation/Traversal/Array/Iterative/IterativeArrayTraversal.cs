@@ -3,6 +3,7 @@ using System.Linq;
 using System.Collections.Generic;
 using DSImplementation.Stack.Implementation.Array;
 using DSImplementation.Tree.Implementation;
+using DSImplementation.Tree.Implementation.LinkedList;
 
 namespace DSImplementation.Tree.Traversal.Array
 {
@@ -16,7 +17,7 @@ namespace DSImplementation.Tree.Traversal.Array
 
         public int DefaultData { get; set; }
 
-        public void Traverse<T>(TreeTraversalType traversalType, T tree)
+        public void Traverse<T>(TreeTraversalType traversalType, TreeNode tree)
         {
         }
 
