@@ -2,6 +2,7 @@
 using DSImplementation.Tree.Implementation;
 using System.Collections.Generic;
 using DSImplementation.Tree.Implementation.LinkedList;
+using DSImplementation.Queue.Implementation.Array;
 
 namespace DSImplementation.Tree.Traversal.Array
 {
@@ -33,6 +34,10 @@ namespace DSImplementation.Tree.Traversal.Array
                 case TreeTraversalType.PostOrder:
                     Console.Write("PostOrder Traversal: ");
                     PostOrderTraversal(tree, 0);
+                    break;
+                case TreeTraversalType.BreadthFirstOrder:
+                    Console.Write("LevelOrder Traversal: ");
+                    BreadthFirstOrderTraversal<T>(tree);
                     break;
                 default:
                     Console.Write("Default InOrder Traversal: ");
@@ -99,6 +104,46 @@ namespace DSImplementation.Tree.Traversal.Array
                     TraverseWithRecursion(tree, index, 2 * index + 2);
                 }
             }
+        }
+
+        public void BreadthFirstOrderTraversal<T>(T[] input)
+        {
+            if (input != null)
+            {
+                MyQueue<T> queue = new MyQueue<T>(input.Length, false);
+
+                dynamic a = 0;
+
+                queue.Enqueue(a);
+
+                BFS<T>(input, 0, queue);
+            }
+        }
+
+        private void BFS<T>(T[] input, int currentIndex, MyQueue<T> queue)
+        {
+            if (queue.isQueueEmpty())
+                return;
+
+            currentIndex = Convert.ToInt32(queue.Dequeue());
+
+            Console.Write(input[currentIndex] + " ");
+
+            dynamic a = 2;
+            var leftNode = a * currentIndex + 1;
+            var rightIndex = a * currentIndex + 2;
+
+            if (!EqualityComparer<T>.Default.Equals(input[leftNode], default(T)))
+            {
+                queue.Enqueue(leftNode);
+            }
+
+            if (!EqualityComparer<T>.Default.Equals(input[rightIndex], default(T)))
+            {
+                queue.Enqueue(rightIndex);
+            }
+
+            BFS(input, currentIndex, queue);
         }
 
         public void PrintNode(int index, int item)

@@ -2,6 +2,7 @@
 using DSImplementation.Tree.Implementation;
 using System.Collections.Generic;
 using DSImplementation.Tree.Implementation.LinkedList;
+using DSImplementation.Queue.Implementation.LinkedList;
 
 namespace DSImplementation.Tree.Traversal.LinkedList
 {
@@ -28,6 +29,10 @@ namespace DSImplementation.Tree.Traversal.LinkedList
                 case TreeTraversalType.PostOrder:
                     Console.Write("PostOrder Traversal: ");
                     PostOrderTraversal<T>(tree);
+                    break;
+                case TreeTraversalType.BreadthFirstOrder:
+                    Console.Write("LevelOrder Traversal: ");
+                    BreadthFirstOrderTraversal<T>(tree);
                     break;
                 default:
                     Console.Write("Default InOrder Traversal: ");
@@ -66,6 +71,40 @@ namespace DSImplementation.Tree.Traversal.LinkedList
             PostOrderTraversal<T>(rootNode.LeftNode);
             PostOrderTraversal<T>(rootNode.RightNode);
             Console.Write(rootNode.Data + " ");
+        }
+
+        public void BreadthFirstOrderTraversal<T>(TreeNode rootNode)
+        {
+            if (rootNode != null)
+            {
+                MyQueue<TreeNode> queue = new MyQueue<TreeNode>();
+
+                queue.Enqueue(rootNode);
+
+                BFS(rootNode, queue);
+            }
+        }
+
+        private void BFS(TreeNode rootNode, MyQueue<TreeNode> queue)
+        {
+            if (queue.IsQueueEmpty())
+                return;
+
+            rootNode = queue.Dequeue();
+
+            Console.Write(rootNode.Data + " ");
+
+            if (rootNode.LeftNode != null)
+            {
+                queue.Enqueue(rootNode.LeftNode);
+            }
+
+            if (rootNode.RightNode != null)
+            {
+                queue.Enqueue(rootNode.RightNode);
+            }
+
+            BFS(rootNode, queue);
         }
 
         public void PrintNode(int index, int item)
