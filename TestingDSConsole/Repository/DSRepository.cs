@@ -2,7 +2,8 @@
 using DSImplementation;
 using DSImplementation.Sort;
 using DSImplementation.Stack.Implementation.Array;
-using DSImplementation.Queue.Implementation.Array;
+using aq = DSImplementation.Queue.Implementation.Array;
+using lq = DSImplementation.Queue.Implementation.LinkedList;
 using DSImplementation.Tree;
 using DSImplementation.Tree.Implementation.LinkedList;
 
@@ -13,14 +14,26 @@ namespace TestingDSConsole.Repository
         public void Samples()
         {
             //TestStack();
-            //TestQueue();
-            TestTree();
+            TestQueue();
+            TestQueueByLinkedList();
+            //TestTree();
             //TestLinkedListTree();
+        }
+
+        private void TestQueueByLinkedList()
+        {
+            lq.MyQueue<int> st = new lq.MyQueue<int>();
+
+            st.Enqueue(5);
+            st.Enqueue(6);
+
+            Console.WriteLine(st.Dequeue());
+            Console.WriteLine(st.Dequeue());
         }
 
         private void TestQueue()
         {
-            MyQueue<int> st = new MyQueue<int>(10, true);
+            aq.MyQueue<int> st = new aq.MyQueue<int>(10, true);
 
             st.Enqueue(5);
             st.Enqueue(6);

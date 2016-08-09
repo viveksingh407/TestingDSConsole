@@ -2,6 +2,7 @@
 using DSImplementation.Tree.Implementation;
 using System.Collections.Generic;
 using DSImplementation.Tree.Implementation.LinkedList;
+using DSImplementation.Queue.Implementation.LinkedList;
 
 namespace DSImplementation.Tree.Traversal.LinkedList
 {
@@ -39,7 +40,10 @@ namespace DSImplementation.Tree.Traversal.LinkedList
         }
 
         private void InOrderTraversal<T>(T rootNode)
-        { }
+        {
+            //MyQueue<T> queue = new MyQueue<T>(10, );
+            //while()
+        }
 
         private void PreOrderTraversal<T>(T rootNode)
         { }
