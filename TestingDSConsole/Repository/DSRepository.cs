@@ -1,6 +1,7 @@
 ﻿using System;
 using DSImplementation;
 using DSImplementation.Sort;
+using DSImplementation.LinkedList.Implementation;
 using DSImplementation.Stack.Implementation.Array;
 using aq = DSImplementation.Queue.Implementation.Array;
 using lq = DSImplementation.Queue.Implementation.LinkedList;
@@ -14,17 +15,62 @@ namespace TestingDSConsole.Repository
     {
         public void Samples()
         {
+            TestLinkedList();
             //TestStack();
             //TestStackByLinkedList();
             //TestQueue();
             //TestQueueByLinkedList();
 
-            var input = Utility.GetInputData(10);
+            //var input = Utility.GetInputData(10);
 
-            TestTree(input);
-            Console.WriteLine();
-            Console.WriteLine("Linked List: ");
-            TestLinkedListTree(input);
+            //TestTree(input);
+            //Console.WriteLine();
+            //Console.WriteLine("Linked List: ");
+            //TestLinkedListTree(input);
+        }
+
+        private void TestLinkedList()
+        {
+            LinkedList<int> list = new LinkedList<int>();
+            int[] input = Utility.GetInputData(10);
+
+            Utility.PrintAll(input);
+
+            for (int i = 0; i < input.Length; i++)
+            {
+                list.InsertFirstNode(input[i]);
+            }
+
+            Console.Write("Output: ");
+            list.Traverse();
+
+            Console.Write("Insert last node: ");
+            list.InsertLastNode(5);
+            list.Traverse();
+
+            Console.Write("Insert 5th node: ");
+            list.InsertNthNode(6, 5);
+            list.Traverse();
+
+            Console.Write("Insert 5th node from last: ");
+            list.InsertNthFromLastNode(229, 5);
+            list.Traverse();
+
+            Console.Write("Delete first node: ");
+            list.DeleteFirstNode();
+            list.Traverse();
+
+            Console.Write("Delete last node: ");
+            list.DeleteLastNode();
+            list.Traverse();
+
+            Console.Write("Delete 7th node: ");
+            list.DeleteNthNode(7);
+            list.Traverse();
+
+            Console.Write("Delete 8th from last node: ");
+            list.DeleteNthFromLastNode(8);
+            list.Traverse();
         }
 
         private void TestStackByLinkedList()

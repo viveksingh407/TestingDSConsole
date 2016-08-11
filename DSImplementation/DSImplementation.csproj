@@ -46,6 +46,7 @@
     <Compile Include="DP\Problems\LCS.cs" />
     <Compile Include="DP\Problems\LIS.cs" />
     <Compile Include="DP\Problems\ReverseString.cs" />
+    <Compile Include="Implementation\LinkedList.Implementation\LinkedList.cs" />
     <Compile Include="Implementation\Tree.Implementation\Traversal\LinkedList\Iterative\IterativeLinkedListTreeTraversal.cs" />
     <Compile Include="Implementation\Tree.Implementation\Traversal\LinkedList\Recursive\RecursiveLinkedListTreeTraversal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
