@@ -3,11 +3,11 @@ using DSImplementation;
 using DSImplementation.Sort;
 using DSImplementation.LinkedList.Implementation;
 using DSImplementation.Stack.Implementation.Array;
+using DSImplementation.Stack.Implementation.LinkedList;
 using aq = DSImplementation.Queue.Implementation.Array;
 using lq = DSImplementation.Queue.Implementation.LinkedList;
 using DSImplementation.Tree;
 using DSImplementation.Tree.Implementation.LinkedList;
-using DSImplementation.Stack.Implementation.LinkedList;
 
 namespace TestingDSConsole.Repository
 {
@@ -15,11 +15,11 @@ namespace TestingDSConsole.Repository
     {
         public void Samples()
         {
-            TestLinkedList();
+            //TestLinkedList();
             //TestStack();
-            //TestStackByLinkedList();
+            TestStackByLinkedList();
             //TestQueue();
-            //TestQueueByLinkedList();
+            TestQueueByLinkedList();
 
             //var input = Utility.GetInputData(10);
 
@@ -147,7 +147,7 @@ namespace TestingDSConsole.Repository
 
         private void TestStack()
         {
-            MyStack st = new MyStack(10, true);
+            MyStack st = new MyStack(10, false);
 
             st.Push(5);
             st.Push(6);

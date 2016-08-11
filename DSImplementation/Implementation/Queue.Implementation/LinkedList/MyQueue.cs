@@ -1,4 +1,5 @@
 ﻿using System;
+using DSImplementation.LinkedList.Implementation;
 using DSImplementation.Tree.Implementation.LinkedList;
 
 namespace DSImplementation.Queue.Implementation.LinkedList
@@ -10,46 +11,64 @@ namespace DSImplementation.Queue.Implementation.LinkedList
             public QueueNode Next { get; set; }
         }
 
-        private QueueNode Front { get; set; }
-        private QueueNode Rear { get; set; }
+        private LinkedList<T> list;
+
+        private LinkedListNode<T> Front { get; set; }
+        private LinkedListNode<T> Rear { get; set; }
 
         public void Enqueue(T item)
         {
-            QueueNode temp = new QueueNode();
-            temp.Data = item;
-            temp.Next = null;
+            if (list == null)
+                list = new LinkedList<T>();
 
-            if (Rear == null)
-            {
-                Front = temp;
-                Rear = temp;
-            }
-            else {
-                Rear.Next = temp;
-                Rear = temp;
-            }
+            list.InsertLastNode(item);
+
+            Front = list.GetHeaderNode();
+            Rear = list.GetLastNode();
+
+            //QueueNode temp = new QueueNode();
+            //temp.Data = item;
+            //temp.Next = null;
+
+            //if (Rear == null)
+            //{
+            //    Front = temp;
+            //    Rear = temp;
+            //}
+            //else {
+            //    Rear.Next = temp;
+            //    Rear = temp;
+            //}
         }
 
         public T Dequeue()
         {
-            QueueNode temp = new QueueNode();
+            if (list == null)
+                list = new LinkedList<T>();
 
-            if (Front == null)
-            {
-                throw new InvalidOperationException("Queue is Empty");
-            }
-            else
-            {
-                temp = Front;
-                Front = Front.Next;
+            var data = list.DeleteFirstNode();
 
-                if(Front == null)
-                {
-                    Rear = null;
-                }
-            }
+            Front = list.GetHeaderNode();
+            Rear = list.GetLastNode();
+            
+            //QueueNode temp = new QueueNode();
 
-            return temp.Data;
+            //if (Front == null)
+            //{
+            //    throw new InvalidOperationException("Queue is Empty");
+            //}
+            //else
+            //{
+            //    temp = Front;
+            //    Front = Front.Next;
+
+            //    if(Front == null)
+            //    {
+            //        Rear = null;
+            //    }
+            //}
+
+            return data;
         }
 
         public T Peek()

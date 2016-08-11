@@ -10,6 +10,12 @@ namespace DSImplementation.LinkedList.Implementation
     public class LinkedList<T>
     {
         private LinkedListNode<T> _rootNode { get; set; }
+        private LinkedListNode<T> _lastNode { get; set; }
+
+        public LinkedListNode<T> GetHeaderNode()
+        {
+            return _rootNode;
+        }
 
         public void InsertFirstNode(T item)
         {
@@ -51,7 +57,7 @@ namespace DSImplementation.LinkedList.Implementation
             newNode.Data = item;
             newNode.Next = null;
 
-            if (temp != null)
+            if (_rootNode != null)
             {
                 while (temp.Next != null)
                 {
@@ -59,6 +65,9 @@ namespace DSImplementation.LinkedList.Implementation
                 }
 
                 temp.Next = newNode;
+            }
+            else {
+                _rootNode = newNode;
             }
         }
 
@@ -96,16 +105,20 @@ namespace DSImplementation.LinkedList.Implementation
             }
         }
 
-        public void DeleteFirstNode()
+        public T DeleteFirstNode()
         {
+            T tempData;
             if (_rootNode != null)
             {
+                tempData = _rootNode.Data;
                 _rootNode = _rootNode.Next;
             }
             else
             {
                 throw new InvalidCastException("The list is empty.");
             }
+
+            return tempData;
         }
 
         public void DeleteLastNode()

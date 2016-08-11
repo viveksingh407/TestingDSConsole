@@ -1,4 +1,5 @@
 ﻿using System;
+using DSImplementation.LinkedList.Implementation;
 
 namespace DSImplementation.Stack.Implementation.LinkedList
 {
@@ -9,34 +10,49 @@ namespace DSImplementation.Stack.Implementation.LinkedList
             public StackNode Next { get; set; }
         }
 
-        private StackNode _top;
+        private LinkedList<T> list;
+
+        private LinkedListNode<T> _top;
 
         public void Push(T item)
         {
-            StackNode newNode = new StackNode();
-            newNode.Data = item;
-            newNode.Next = null;
+            if(list == null)
+                list = new LinkedList<T>();
 
-            if (_top == null)
-            {
-                _top = newNode;
-            }
-            else
-            {
-                newNode.Next = _top;
-                _top = newNode;
-            }
+            list.InsertFirstNode(item);
+
+            _top = list.GetHeaderNode();
+
+            //StackNode newNode = new StackNode();
+            //newNode.Data = item;
+            //newNode.Next = null;
+
+            //if (_top == null)
+            //{
+            //    _top = newNode;
+            //}
+            //else
+            //{
+            //    newNode.Next = _top;
+            //    _top = newNode;
+            //}
         }
 
         public T Pop()
         {
-            if (_top == null)
-            {
-                throw new InvalidOperationException("Stack is empty.");
-            }
+            if (list == null)
+                list = new LinkedList<T>();
 
-            T data = _top.Data;
-            _top = _top.Next;
+            var data = list.DeleteFirstNode();
+            _top = list.GetHeaderNode();
+
+            //if (_top == null)
+            //{
+            //    throw new InvalidOperationException("Stack is empty.");
+            //}
+
+            //T data = _top.Data;
+            //_top = _top.Next;
 
             return data;
         }
