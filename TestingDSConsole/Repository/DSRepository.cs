@@ -8,6 +8,7 @@ using aq = DSImplementation.Queue.Implementation.Array;
 using lq = DSImplementation.Queue.Implementation.LinkedList;
 using DSImplementation.Tree;
 using DSImplementation.Tree.Implementation.LinkedList;
+using DSImplementation.Strings;
 
 namespace TestingDSConsole.Repository
 {
@@ -17,9 +18,9 @@ namespace TestingDSConsole.Repository
         {
             //TestLinkedList();
             //TestStack();
-            TestStackByLinkedList();
+            //TestStackByLinkedList();
             //TestQueue();
-            TestQueueByLinkedList();
+            //TestQueueByLinkedList();
 
             //var input = Utility.GetInputData(10);
 
@@ -27,6 +28,15 @@ namespace TestingDSConsole.Repository
             //Console.WriteLine();
             //Console.WriteLine("Linked List: ");
             //TestLinkedListTree(input);
+
+            TestStringProblems();
+        }
+
+        private void TestStringProblems()
+        {
+
+            Problems stringProblems = new Problems();
+            stringProblems.MatchPatternInString();
         }
 
         private void TestLinkedList()

@@ -65,6 +65,7 @@
     <Compile Include="Implementation\Tree.Implementation\Traversal\LinkedList\BinaryTree.cs" />
     <Compile Include="Implementation\Tree.Implementation\TreeTraversal.cs" />
     <Compile Include="Implementation\Tree.Implementation\Tree.cs" />
+    <Compile Include="Strings\Problems.cs" />
     <Compile Include="Utility.cs" />
   </ItemGroup>
   <ItemGroup />
