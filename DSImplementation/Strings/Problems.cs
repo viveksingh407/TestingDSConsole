@@ -7,7 +7,7 @@ namespace DSImplementation.Strings
         public void Solve()
         { }
 
-        public void MatchPatternInString()
+        public void MatchPatternNaiveImplementation()
         {
 
             Console.Write("Input: ");
@@ -33,14 +33,14 @@ namespace DSImplementation.Strings
                     if (j == patternLength)
                     {
                         isPatternMatching = true;
-                        Console.WriteLine("Success");
+                        Console.WriteLine("Pattern is present");
                         break;
                     }
                 }
             }
 
             if(!isPatternMatching)
-                Console.WriteLine("Failure");
+                Console.WriteLine("Pattern not present.");
         }
     }
 }

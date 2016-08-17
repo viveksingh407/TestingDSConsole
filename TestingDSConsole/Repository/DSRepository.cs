@@ -36,7 +36,7 @@ namespace TestingDSConsole.Repository
         {
 
             Problems stringProblems = new Problems();
-            stringProblems.MatchPatternInString();
+            stringProblems.MatchPatternNaiveImplementation();
         }
 
         private void TestLinkedList()
