@@ -1,5 +1,5 @@
 ﻿using System;
-using DSImplementation.DP;
+using DSImplementation.DP.Problems;
 
 namespace TestingDSConsole.Repository
 {
@@ -7,9 +7,16 @@ namespace TestingDSConsole.Repository
     {
         public void DPQuestions()
         {
-            //DPProblems dp = new DPProblems();
+            Problems();
+        }
 
-            //dp.Problems();
+        private void Problems()
+        {
+            ArrayDearrangements arr = new ArrayDearrangements();
+            arr.Solve();
+
+            //EditDistance ed = new EditDistance();
+            //ed.Problem();
         }
     }
 }

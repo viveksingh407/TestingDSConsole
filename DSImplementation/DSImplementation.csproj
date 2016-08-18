@@ -43,6 +43,8 @@
     <Compile Include="Array\FindTwoElementsWithSum.cs" />
     <Compile Include="Array\PrintVerticalBinaryTree.cs" />
     <Compile Include="DP\IProblem.cs" />
+    <Compile Include="DP\Problems\ArrayDearrangements.cs" />
+    <Compile Include="DP\Problems\EditDistance.cs" />
     <Compile Include="DP\Problems\LCS.cs" />
     <Compile Include="DP\Problems\LIS.cs" />
     <Compile Include="DP\Problems\ReverseString.cs" />

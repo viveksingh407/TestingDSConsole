@@ -7,11 +7,11 @@ namespace TestingDSConsole
     {
         static void Main(string[] args)
         {
-            DSRepository ds = new DSRepository();
-            ds.Samples();
+            //DSRepository ds = new DSRepository();
+            //ds.Samples();
 
-            //DPRepository dp = new DPRepository();
-            //dp.DPQuestions();
+            DPRepository dp = new DPRepository();
+            dp.DPQuestions();
 
             //SearchRepository search = new SearchRepository();
             //search.SearchImplementations();
