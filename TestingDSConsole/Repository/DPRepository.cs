@@ -12,11 +12,14 @@ namespace TestingDSConsole.Repository
 
         private void Problems()
         {
-            ArrayDearrangements arr = new ArrayDearrangements();
-            arr.Solve();
+            //ArrayDearrangements arr = new ArrayDearrangements();
+            //arr.Solve();
 
             //EditDistance ed = new EditDistance();
             //ed.Problem();
+
+            MinimumCostPath mp = new MinimumCostPath();
+            mp.Solve();
         }
     }
 }

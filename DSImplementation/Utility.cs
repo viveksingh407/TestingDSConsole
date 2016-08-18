@@ -113,5 +113,22 @@ namespace DSImplementation
 
             Console.WriteLine(output);
         }
+
+        public static void PrintMatrix<T>(string text, T[,] data)
+        {
+            string delimiter = string.Empty;
+            Console.Write(text);
+
+            for (int i = 0; i < data.GetLength(0); i++)
+            {
+                for (int j = 0; j < data.GetLength(1); j++)
+                {
+                    delimiter = (j < data.GetLength(1) - 1) ? ", " : string.Empty;
+                    Console.Write(data[i, j] + delimiter);
+                }
+
+                Console.WriteLine();
+            }
+        }
     }
 }

@@ -7,7 +7,7 @@ namespace DSImplementation.DP.Problems
     /// </summary>
     public class EditDistance
     {
-        public void Problem()
+        public void Solve()
         {
             string firstString = "geek";
             string secondString = "gesek";
