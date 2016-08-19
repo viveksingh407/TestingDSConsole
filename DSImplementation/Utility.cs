@@ -65,7 +65,12 @@ namespace DSImplementation
 
         public static void PrintAll(int[] data)
         {
-            Console.Write("Input : ");
+            PrintAll("Input : ", data);
+        }
+
+        public static void PrintAll(string text, int[] data)
+        {
+            Console.Write(text);
             StringBuilder builder = new StringBuilder();
 
             for (int i = 0; i < data.Length; i++)
