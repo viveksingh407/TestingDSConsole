@@ -59,6 +59,7 @@
     <Compile Include="Implementation\Queue.Implementation\LinkedList\MyQueue.cs" />
     <Compile Include="Search\BinarySearch.cs" />
     <Compile Include="Sort\BaseSort.cs" />
+    <Compile Include="Sort\CountingSort.cs" />
     <Compile Include="Sort\InsertionSort.cs" />
     <Compile Include="Sort\QuickSort.cs" />
     <Compile Include="Sort\SelectionSort.cs" />

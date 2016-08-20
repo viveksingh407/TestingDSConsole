@@ -8,12 +8,17 @@ namespace DSImplementation
     {
         public static int[] GetInputData(int inputSize)
         {
+            return GetInputData(inputSize, 100);
+        }
+
+        public static int[] GetInputData(int inputSize, int maxValue)
+        {
             var input = new int[inputSize];
             Random rnd = new Random();
 
             for (int i = 0; i < inputSize; i++)
             {
-                input[i] = rnd.Next(100);
+                input[i] = rnd.Next(maxValue);
 
                 if (input[i] == 0)
                 {
