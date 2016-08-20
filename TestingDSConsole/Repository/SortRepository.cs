@@ -10,6 +10,7 @@ namespace TestingDSConsole.Repository
         {
             //QuickSortImplementation();
             CountingSortImplementation();
+            //RadixSortImplementation();
         }
 
         private void QuickSortImplementation()
@@ -31,7 +32,7 @@ namespace TestingDSConsole.Repository
 
         private void CountingSortImplementation()
         {
-            int len = 10;
+            int len = 8;
             int range = 10;
             int[] input = new int[len];
             int[] output = new int[len];
@@ -45,6 +46,10 @@ namespace TestingDSConsole.Repository
             Utility.PrintAll("Output: ", input);
             output = qs.Sort(input, range, SortOrderType.Desc);
             Utility.PrintAll("Output: ", input);
+        }
+
+        private void RadixSortImplementation()
+        {
         }
     }
 }

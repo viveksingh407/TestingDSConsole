@@ -62,6 +62,7 @@
     <Compile Include="Sort\CountingSort.cs" />
     <Compile Include="Sort\InsertionSort.cs" />
     <Compile Include="Sort\QuickSort.cs" />
+    <Compile Include="Sort\Radix.cs" />
     <Compile Include="Sort\SelectionSort.cs" />
     <Compile Include="Implementation\Stack.Implementation\Array\MyStack.cs" />
     <Compile Include="Implementation\Stack.Implementation\LinkedList\MyStack.cs" />

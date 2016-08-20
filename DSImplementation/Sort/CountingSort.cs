@@ -41,7 +41,7 @@ namespace DSImplementation.Sort
 
                 if (orderType == SortOrderType.Asc)
                 {
-                    for (int x = 1; x < input.Length; x++)
+                    for (int x = 0; x < input.Length; x++)
                     {
                         input[x] = output[x];
                     }
