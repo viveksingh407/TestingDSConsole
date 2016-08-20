@@ -10,8 +10,8 @@ namespace TestingDSConsole
             //DSRepository ds = new DSRepository();
             //ds.Samples();
 
-            DPRepository dp = new DPRepository();
-            dp.DPQuestions();
+            //DPRepository dp = new DPRepository();
+            //dp.DPQuestions();
 
             //SearchRepository search = new SearchRepository();
             //search.SearchImplementations();
@@ -21,10 +21,11 @@ namespace TestingDSConsole
 
             //Console.ReadLine();
 
-            //SortRepository sort = new SortRepository();
-            //sort.SortImplementations();
+            SortRepository sort = new SortRepository();
+            sort.SortImplementations();
 
-
+            //ArrayRepository arr = new ArrayRepository();
+            //arr.ArrayImplementations();
         }
     }
 }
