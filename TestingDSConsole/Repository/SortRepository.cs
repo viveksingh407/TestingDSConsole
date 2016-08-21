@@ -39,17 +39,31 @@ namespace TestingDSConsole.Repository
 
             Console.WriteLine("Counting Sort: ");
 
-            CountingSort qs = new CountingSort();
+            CountingSort s = new CountingSort();
             input = Utility.GetInputData(len, range);
             Utility.PrintAll("Input: ", input);
-            output = qs.Sort(input, range, SortOrderType.Asc);
+            output = s.Sort(input, range, SortOrderType.Asc);
             Utility.PrintAll("Output: ", input);
-            output = qs.Sort(input, range, SortOrderType.Desc);
+            output = s.Sort(input, range, SortOrderType.Desc);
             Utility.PrintAll("Output: ", input);
         }
 
         private void RadixSortImplementation()
         {
+            int len = 8;
+            int range = len*len;
+            int[] input = new int[len];
+            int[] output = new int[len];
+
+            Console.WriteLine("Radix Sort: ");
+
+            RadixSort s = new RadixSort();
+            input = Utility.GetInputData(len, range);
+            Utility.PrintAll("Input: ", input);
+            output = s.Sort(input, range, SortOrderType.Asc);
+            Utility.PrintAll("Output: ", input);
+            output = s.Sort(input, range, SortOrderType.Desc);
+            Utility.PrintAll("Output: ", input);
         }
     }
 }

@@ -2,7 +2,7 @@
 
 namespace DSImplementation.Sort
 {
-    public class Radix
+    public class RadixSort
     {
         public int[] Sort(int[] input, int range)
         {
