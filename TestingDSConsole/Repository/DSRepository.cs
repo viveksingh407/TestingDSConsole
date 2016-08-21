@@ -9,6 +9,7 @@ using lq = DSImplementation.Queue.Implementation.LinkedList;
 using DSImplementation.Tree;
 using DSImplementation.Tree.Implementation.LinkedList;
 using DSImplementation.Strings;
+using DSImplementation.Heap.Implementation;
 
 namespace TestingDSConsole.Repository
 {
@@ -29,7 +30,37 @@ namespace TestingDSConsole.Repository
             //Console.WriteLine("Linked List: ");
             //TestLinkedListTree(input);
 
-            TestStringProblems();
+            //TestStringProblems();
+
+            HeapProblems();
+        }
+
+        private void HeapProblems()
+        {
+            int len = 10;
+            Heap hp = new Heap(len);
+
+            //int[] input = Utility.GetInputData(len);
+            //int[] input = new int[] { 17, 25, 100, 19, 2, 36, 1, 3, 7 };
+            int[] input = new int[] { 1, 5, 6, 9, 11, 8, 15, 17, 21};
+
+            Utility.PrintAll("Heap: ", input);
+
+            for (int i = 0; i < input.Length; i++)
+            {
+                hp.InsertKey(input[i]);
+            }
+
+            //Utility.PrintAll("Heap: ", hp._heap);
+
+            for (int i = 0; i < 5; i++)
+            {
+                hp.DeleteKey(i);
+            }
+
+            //hp.DeleteKey(1);
+
+            Utility.PrintAll("Heap: ", hp._heap, hp._heapSize);
         }
 
         private void TestStringProblems()

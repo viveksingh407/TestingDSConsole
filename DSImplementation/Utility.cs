@@ -75,10 +75,15 @@ namespace DSImplementation
 
         public static void PrintAll(string text, int[] data)
         {
+            PrintAll("Input : ", data, data.Length);
+        }
+
+        public static void PrintAll(string text, int[] data, int counter)
+        {
             Console.Write(text);
             StringBuilder builder = new StringBuilder();
 
-            for (int i = 0; i < data.Length; i++)
+            for (int i = 0; i < counter; i++)
             {
                 builder.Append(data[i] + ", ");
             }

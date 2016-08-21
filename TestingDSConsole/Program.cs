@@ -7,8 +7,8 @@ namespace TestingDSConsole
     {
         static void Main(string[] args)
         {
-            //DSRepository ds = new DSRepository();
-            //ds.Samples();
+            DSRepository ds = new DSRepository();
+            ds.Samples();
 
             //DPRepository dp = new DPRepository();
             //dp.DPQuestions();
@@ -21,8 +21,8 @@ namespace TestingDSConsole
 
             //Console.ReadLine();
 
-            SortRepository sort = new SortRepository();
-            sort.SortImplementations();
+            //SortRepository sort = new SortRepository();
+            //sort.SortImplementations();
 
             //ArrayRepository arr = new ArrayRepository();
             //arr.ArrayImplementations();
